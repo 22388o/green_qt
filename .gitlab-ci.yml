@@ -13,6 +13,7 @@ bionic_release:
     - ga
   stage: build
   script:
+    - ./tools/bionic_deps.sh
     - ./tools/buildgreen.sh linux
     - mkdir build-linux-gcc
     - cp /docker_bld_root/*/green build-linux-gcc/
@@ -30,6 +31,7 @@ windows_release:
     - ga
   stage: build
   script:
+    - ./tools/bionic_deps.sh
     - ./tools/buildgreen.sh windows
     - mkdir -p build-mingw-w64/release
     - cp /docker_bld_root/*/release/green.exe "build-mingw-w64/release/Green.exe"
