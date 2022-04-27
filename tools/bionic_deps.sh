@@ -3,14 +3,6 @@ set -exo pipefail
 
 . /qtversion.env
 
-if [ -f /.dockerenv ]; then
-    if [ -f /bionic_hash ]; then
-        bionic_deps_sha256=$(< /bionic_hash)
-        echo "${bionic_deps_sha256} /bionic_deps.sh" | sha256sum --check --strict --status && exit 0 || true
-    fi
-fi
-
-
 apt-get update -qq
 apt-get install -yqq --no-install-recommends --no-install-suggests software-properties-common
 
