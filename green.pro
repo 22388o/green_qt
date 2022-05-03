@@ -79,6 +79,7 @@ unix:!macos:!android {
         LIBS += -L$${GDK_PATH} -lgreenaddress
     }
     LIBS += -ludev
+    QMAKE_LDFLAGS=-Wl,-V
 }
 
 win32:static {
